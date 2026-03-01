@@ -1,0 +1,52 @@
+﻿@model List<Order>
+
+<div class="card stretch-card">
+    <div class="card-body">
+        <h4 class="card-title">
+            <i class="fas fa-table text-info"></i>
+            Son Siparişler
+        </h4>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Müşteri</th>
+                        <th>Ürün</th>
+                        <th>Adet</th>
+                        <th>Durum</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="font-weight-bold">
+                                @item.Customer.CustomerName @item.Customer.CustomerSurname
+                            </td>
+                            <td class="text-muted">
+                                @item.Product.ProductName
+                            </td>
+                            <td>
+                                @item.OrderCount
+                            </td>
+                            <td>
+                                @{
+                                    var badgeClass = item.Status switch
+                                    {
+                                        "Taşıma Durumunda" => "badge-warning",
+                                        "İptal" => "badge-danger",
+                                        "Teslim Edildi" => "badge-success",
+                                        "Sipariş Alındı" => "badge-primary",
+                                        "Ödeme Bekleniyor" => "badge-info",
+                                        _ => "badge-secondary"
+                                    };
+                                }
+                                <label class="badge @badgeClass badge-pill">@item.Status</label>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

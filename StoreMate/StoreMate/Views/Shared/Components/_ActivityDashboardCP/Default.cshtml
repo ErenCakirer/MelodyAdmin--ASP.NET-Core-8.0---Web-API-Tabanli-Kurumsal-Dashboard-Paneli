@@ -1,0 +1,33 @@
+﻿@model List<Activity>
+
+<div class="card stretch-card">
+    <div class="card-body">
+        <h4 class="card-title">
+            <i class="far fa-futbol text-primary"></i>
+            Aktiviteler
+        </h4>
+        <ul class="solid-bullet-list">
+            @foreach (var item in Model)
+            {
+                <li class="mb-3">
+                    <h5>
+                        @item.Title
+                        <span class="float-right text-muted font-weight-normal small">
+                            @item.ActivityTime
+                        </span>
+                    </h5>
+                    <p class="text-muted small">@item.Description</p>
+                </li>
+            }
+        </ul>
+        <div class="border-top pt-3 mt-auto">
+            <div class="d-flex justify-content-between">
+                <button class="btn btn-outline-dark btn-sm">Daha Fazlası</button>
+                <button class="btn btn-primary btn-icon-text btn-sm">
+                    Yeni Aktivite Ekle
+                    <i class="btn-icon-append fas fa-plus"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

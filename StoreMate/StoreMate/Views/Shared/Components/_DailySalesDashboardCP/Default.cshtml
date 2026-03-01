@@ -1,0 +1,53 @@
+﻿@model List<ToDoStatusChartVM>
+@using Newtonsoft.Json
+
+@{
+    var statusLabels = Model.Select(x => x.Status).ToList();
+    var statusCounts = Model.Select(x => x.Count).ToList();
+}
+
+
+<div class="card stretch-card">
+    <div class="card-body">
+        <h4 class="card-title">
+            <i class="fas fa-tasks text-primary"></i> Yapılacaklar - Durum Dağılımı
+        </h4>
+     
+        <div style="height: 300px;">
+            <canvas id="todo-status-chart"></canvas>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const labels = @Html.Raw(JsonConvert.SerializeObject(statusLabels));
+        const counts = @Html.Raw(JsonConvert.SerializeObject(statusCounts));
+
+        const ctx = document.getElementById('todo-status-chart').getContext('2d');
+        const chart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: labels,
+                datasets: [{
+                    data: counts,
+                    backgroundColor: [
+                        '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF'
+                    ],
+                    borderColor: '#fff',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'right'
+                    }
+                }
+            }
+        });
+    });
+</script>

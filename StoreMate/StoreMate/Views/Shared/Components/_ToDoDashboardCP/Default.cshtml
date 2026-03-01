@@ -1,0 +1,45 @@
+﻿@model List<ToDo>
+
+<div class="card stretch-card">
+    <div class="card-body">
+        <h4 class="card-title">
+            <i class="fas fa-thumbtack text-danger"></i> 
+            Yapılacak İşler
+        </h4>
+        <div class="add-items d-flex">
+            <input type="text" class="form-control todo-list-input" placeholder="Bugün ne yapmanız gerekiyor?">
+            <button class="add btn btn-primary font-weight-bold todo-list-add-btn" id="add-task">Ekle</button>
+        </div>
+        <div class="list-wrapper">
+            <ul class="d-flex flex-column-reverse todo-list">
+                @foreach (var item in Model)
+                {
+                    <li>
+                        @if (item.Status == true)
+                        {
+                            <div class="form-check completed">
+                              
+                                <label class="form-check-label">
+                                    <input class="checkbox" type="checkbox" checked>
+                                    @item.Description
+                                    <i class="input-helper"></i>
+                                </label>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input class="checkbox" type="checkbox">
+                                    @item.Description
+                                    <i class="input-helper"></i>
+                                </label>
+                            </div>
+                        }
+                        <i class="remove fa fa-times-circle text-danger"></i>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

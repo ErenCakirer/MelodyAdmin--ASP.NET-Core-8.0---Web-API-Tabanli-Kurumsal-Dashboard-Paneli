@@ -1,0 +1,22 @@
+﻿INSERT INTO Categories (CategoryName, CategoryStatus)
+VALUES 
+('Masaüstü Bilgisayar', 1),
+('Dizüstü Bilgisayar', 1),
+('Akıllı Telefonlar', 1),
+('Tabletler', 1),
+('Monitörler', 1),
+('Yazıcılar', 1),
+('Depolama Birimleri (SSD/HDD)', 1),
+('Ağ Bileşenleri (Modem/Router)', 1),
+('Bilgisayar Bileşenleri (Anakart/GPU)', 1),
+('Klavye ve Mouse', 1),
+('Kulaklık ve Ses Sistemleri', 1),
+('Ofis Mobilyaları', 1),
+('Kırtasiye Ürünleri', 1),
+('Yazılım ve İşletim Sistemleri', 1),
+('Oyun Konsolları', 1),
+('Akıllı Saatler', 1),
+('Kamera ve Fotoğraf Makineleri', 1),
+('Kesintisiz Güç Kaynakları (UPS)', 1),
+('Projeksiyon Cihazları', 1),
+('Kablolar ve Adaptörler', 1);

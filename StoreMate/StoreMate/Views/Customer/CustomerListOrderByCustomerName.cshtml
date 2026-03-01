@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewData["Title"] = "CustomerListOrderByCustomerName";
+    Layout = "~/Views/Layout/Index.cshtml";
+    int count = 0;
+}
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Müşteri Listesi</h4>
+                <p class="card-description">
+
+                </p>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Müşteri Adı</th>
+                                <th>Şehir</th>
+                                <th>Bakiye</th>
+                                
+
+                                <th>Sil</th>
+                                <th>Güncelle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                count++;
+                                <tr>
+                                    <th>@count</th>
+                                    <td>@item.CustomerName @item.CustomerSurname</td>
+                                    <td>@item.CustomerCity/ @item.CustomerDistrict</td>
+                                    <td>@item.CustomerBalance  TL</td>
+                                  
+                                   
+
+                                    <td><a href="/Customer/DeleteCustomer/@item.CustomerId" class="btn btn-danger">Sil</a></td>
+                                    <td><a href="/Customer/UpdateCustomer/@item.CustomerId" class="btn btn-success">Güncelle</a></td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                    <a href="/Customer/CreateCustomer/" class="btn btn-primary">Yeni Müşteri Ekle</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

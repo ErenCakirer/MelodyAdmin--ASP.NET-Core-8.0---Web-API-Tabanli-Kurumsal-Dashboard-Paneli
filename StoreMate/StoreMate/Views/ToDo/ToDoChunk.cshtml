@@ -1,0 +1,44 @@
+﻿@using StoreMate.Entities
+@model IEnumerable<IEnumerable<ToDo>>
+
+@{
+    ViewData["Title"] = "ToDoChunk";
+    Layout = "~/Views/Layout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="page-header">
+    <h3 class="page-title"> Chunk ile Gruplanmış Görevler </h3>
+</div>
+
+@foreach (var group in Model)
+{
+    count++;
+    <h5 class="mb-3 mt-4 text-primary">@count. Grup</h5>
+    <div class="row">
+        @foreach (var item in group)
+        {
+            <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="card-title mb-0">@item.Description</h5>
+                            @if (item.Status)
+                            {
+                                <span class="badge badge-success">Tamamlandı</span>
+                            }
+                            else
+                            {
+                                <span class="badge badge-warning text-dark">Tamamlanmadı</span>
+                            }
+                        </div>
+                        <p class="card-text">
+                            <strong>Öncelik:</strong>
+                            <span class="text-muted">@item.Priority</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

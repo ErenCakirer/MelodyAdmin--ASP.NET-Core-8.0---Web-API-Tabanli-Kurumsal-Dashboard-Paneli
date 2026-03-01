@@ -1,0 +1,44 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "UpdateProduct";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+<div class=" row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title"> Ürün Güncelleme Sayfası </h4>
+
+                <form class="forms-sample" method="post">
+                    <div class="form-group">
+                     
+                        <label for="exampleInputName1">Ürün Adı</label>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Ürün Adını yazınız..." />
+                    </div>
+                    <div class="form-group">
+
+                        <label for="exampleInputName1">Ürün Fiyatı</label>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Ürün fiyatını yazınız..." />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Kategori Seçin</label>
+                        <select asp-for="ProductId" asp-items="@ViewBag.Categories" class="form-control">
+
+                            <option value="">-Kategori Seçiniz-</option>
+                        </select>
+
+                    </div>
+                    <div class="form-group">
+
+                        <label for="exampleInputName1">Stok</label>
+                        <input type="text" class="form-control" id="exampleInputName1"/>
+                    </div>
+
+                    <button type="submit" class="btn btn-success mr-2">Güncelle</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

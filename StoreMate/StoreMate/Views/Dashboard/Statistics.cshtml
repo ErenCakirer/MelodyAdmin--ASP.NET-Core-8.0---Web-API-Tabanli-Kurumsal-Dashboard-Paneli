@@ -1,0 +1,30 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+@await Component.InvokeAsync("_HeadDashboardCP")
+
+<body>
+    <div class="container-scroller">
+        @await Component.InvokeAsync("_NavbarDashboardCP")
+
+        <div class="container-fluid page-body-wrapper">
+            @await Component.InvokeAsync("_ThemeSettingsDashboard")
+            @await Component.InvokeAsync("_RigthSidebarDashboardCP")
+            @await Component.InvokeAsync("_SidebarDashboardCP")
+            @await Component.InvokeAsync("StatisticsCardVC")
+           
+        </div>
+    </div>
+    <script src="~/Melody-Premium-Bootstrap-Admin-Dashboard-Template/vendors/js/vendor.bundle.base.js"></script>
+    <script src="~/Melody-Premium-Bootstrap-Admin-Dashboard-Template/vendors/js/vendor.bundle.addons.js"></script>
+    <script src="~/Melody-Premium-Bootstrap-Admin-Dashboard-Template/js/off-canvas.js"></script>
+    <script src="~/Melody-Premium-Bootstrap-Admin-Dashboard-Template/js/hoverable-collapse.js"></script>
+    <script src="~/Melody-Premium-Bootstrap-Admin-Dashboard-Template/js/misc.js"></script>
+    <script src="~/Melody-Premium-Bootstrap-Admin-Dashboard-Template/js/settings.js"></script>
+    <script src="~/Melody-Premium-Bootstrap-Admin-Dashboard-Template/js/todolist.js"></script>
+    <script src="~/Melody-Premium-Bootstrap-Admin-Dashboard-Template/js/dashboard.js"></script>
+</body>
+</html>

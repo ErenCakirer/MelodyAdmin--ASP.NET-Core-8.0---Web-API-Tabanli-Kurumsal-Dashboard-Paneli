@@ -1,0 +1,36 @@
+﻿@model List<Message>
+
+<div class="card stretch-card">
+    <div class="card-body">
+        <h4 class="card-title">
+            <i class="fas fa-envelope"></i> Gelen Son 5 Mesaj
+        </h4>
+        <div class="table-responsive">
+            <table class="table table-hover">
+             
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="py-1" style="width: 40px;">
+                                <img src="@item.SenderImage" alt="profile" class="img-sm rounded-circle" />
+                            </td>
+                            <td class="font-weight-bold">
+                                @item.SenderNameSurname
+                                <br />
+                                <small class="text-muted">@item.Title</small>
+                            </td>
+                            <td class="text-muted">
+                            
+                                @(item.MessageDetail.Length > 35 ? item.MessageDetail.Substring(0, 35) + "..." : item.MessageDetail)
+                            </td>
+                            <td>
+                                <i class="fas fa-ellipsis-v text-muted"></i>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

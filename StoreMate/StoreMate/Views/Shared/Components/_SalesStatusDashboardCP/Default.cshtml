@@ -1,0 +1,67 @@
+﻿@model List<CustomersChartsVm>
+@using Newtonsoft.Json
+
+@{
+
+    var cityLabels = Model.Select(x => x.City).ToList();
+    var cityCounts = Model.Select(x => x.Count).ToList();
+}
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">
+            <i class="fas fa-map-marker-alt"></i> Şehirlere Göre Müşteri Dağılımı
+        </h4>
+        <div class="chartjs-size-monitor">
+        
+            <canvas id="customer-city-chart" style="height:300px; width:100%"></canvas>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const labels = @Html.Raw(JsonConvert.SerializeObject(cityLabels));
+        const counts = @Html.Raw(JsonConvert.SerializeObject(cityCounts));
+
+     
+        const colors = [
+            '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40',
+            '#8e5ea2', '#3cba9f', '#e8c3b9', '#c45850', '#3e95cd', '#FFD700',
+            '#ADFF2F', '#FF4500', '#00CED1', '#9370DB', '#20B2AA', '#F08080'
+        ];
+
+        const ctx = document.getElementById('customer-city-chart').getContext('2d');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: labels,
+                datasets: [{
+                    data: counts,
+                    backgroundColor: colors,
+                    borderColor: '#ffffff',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '70%',
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        enabled: true,
+                        callbacks: {
+                            label: function(context) {
+                                return ` ${context.label}: ${context.raw} Müşteri`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    });
+</script>
