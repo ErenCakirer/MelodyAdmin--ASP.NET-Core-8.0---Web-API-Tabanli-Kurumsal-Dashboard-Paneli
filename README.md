@@ -1,5 +1,5 @@
-Proje Hakkında
-Bu proje, backend ağırlıklı bir yaklaşımla, N-Tier (N-Katmanlı) Mimari prensiplerine uygun olarak geliştirilmiş kapsamlı bir yönetim paneli uygulamasıdır. Kullanıcıların verileri dinamik olarak takip edebildiği, Chart.js entegrasyonu ile görselleştirilmiş ve veritabanı CRUD işlemlerinin optimize edildiği bir yapıya sahiptir.
+Bu proje, kapsamlı bir -Eğitim Kampı- sürecinde, modern kurumsal web uygulamalarının yönetim paneli (Admin Dashboard) ihtiyaçlarını ve API entegrasyon süreçlerini öğrenmek amacıyla geliştirilmiştir. Eğitim boyunca asenkron programlama ve katmanlı mimari standartları pratik edilmiştir.
+
 
 🛠️ Teknik Yetkinlikler (Tech Stack)
 Backend: C#, ASP.NET Core 8.0 MVC
